@@ -1,6 +1,7 @@
 [![Build Status](https://secure.travis-ci.org/MorganConrad/gitdir.png)](http://travis-ci.org/MorganConrad/gitdir)
 [![License](http://img.shields.io/badge/license-MIT-A31F34.svg)](https://github.com/MorganConrad/gitdir)
 [![NPM Downloads](http://img.shields.io/npm/dm/gitdir.svg)](https://www.npmjs.org/package/gitdir)
+[![Known Vulnerabilities](https://snyk.io/test/github/morganconrad/gitdir/badge.svg)](https://snyk.io/test/github/morganconrad/gitdir)
 
 # gitdir
 

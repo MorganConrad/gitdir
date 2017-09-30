@@ -6,16 +6,19 @@
 # gitdir
 
 Javascript / node.js code to read a single directory from a GitHub or GitLab repository.
-All the files (not directories) and their contents, and returned in an array or map.
+All the files (not directories) and their contents, are returned in an array or map.
 
 ## basic usage
 
-`var gitdir = require('gitdir');`
-`gitdir(repositoryName, directory, options, callback);`
+```
+var gitdir = require('gitdir');
+...
+gitdir(repositoryName, directory, options, callback);
+```
 
-repositoryName combines the user and the repo, and the delimiter is important!
- * for GitHub use JohnDoe/CoolRepository
- * for GitLab, use JohnDoe%2FCoolRepository
+**repositoryName** combines the user and the repo, and the delimiter is important!
+ * for GitHub use `JohnDoe/CoolRepository`
+ * for GitLab, use `JohnDoe%2FCoolRepository`
 
 e.g.   to read the root directory of the [Github npm](https://github.com/npm/npm) repository,
 ```javascript
@@ -31,7 +34,7 @@ except:
   2. A new field, "contents", has the contents of the file.
 
 
-Example for a single file npm/npm/LICENSE  (contents truncated)
+Example for a single file `npm/npm/LICENSE`  (contents truncated)
 
 ```
 {
@@ -56,7 +59,7 @@ Example for a single file npm/npm/LICENSE  (contents truncated)
 For GitLab, the information is similar to what you'd get from
 https://gitlab.com/api/v4/projects/{repositoryName}/repository/tree?private_token={options.private_token}&ref={options.branch}, with the addition of a contents and a download_url, which was used to fetch the contents.
 
-e.g. gitlab-com%2Fwww-gitlab-com/LICENCE, you get:
+e.g. `gitlab-com%2Fwww-gitlab-com/LICENCE`, you get:
 
 ```
 {
@@ -75,7 +78,7 @@ e.g. gitlab-com%2Fwww-gitlab-com/LICENCE, you get:
 ```
 * gitlab, GitLab:   **false**
 * body_key :        **"contents"**     name of the new key holding the file contents ("body")
-* branch :          **"master"**       note - not used consistenly yet...
+* branch :          **"master"**       note - not tested much yet...
 * fileFilter :      see below
 * map :             **false**          if true, return a map (with key = path) instead of array of file information
 * private_token :   **""**             needed if you are fetching a private repository
@@ -83,7 +86,7 @@ e.g. gitlab-com%2Fwww-gitlab-com/LICENCE, you get:
 * user_agent :      **"github.com/MorganConrad/gitdir"**   required for the API call, be polite
 ```
 
-options.fileFilter:  determines which files will be included
+**options.fileFilter** determines which files will be included
  - if missing, include all files, except those ending in ".jar".
  - if a string or Regex, only include matching filePaths.
  - if a user-provided-function, include the file when `filter(filePath, fileInfo)` returns true.  _e.g._ If you want to use [multimatch](https://www.npmjs.com/package/multimatch)
@@ -94,5 +97,5 @@ options.fileFilter:  determines which files will be included
   1. the private_token is a security weakness, and, even worse, may appear in the results.  
    - Haven't tried it with GitHub cause I don't have any private repos there
    - For GitLab, you should use a more granular ["Personal Access Token"](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) instead.
-  2. Branch isn't used consistently yet.
+  2. Branch isn't well tested or used consistently yet.
   3. Recursion into directories might be added later

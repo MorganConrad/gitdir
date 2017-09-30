@@ -1,14 +1,14 @@
 {
-  "name": "gitter",
+  "name": "gitdir",
   "version": "0.1.0",
   "description": "Get files from a single directory of a GitHub repositories",
-  "main": "gitter.js",
+  "main": "gitdir.js",
   "scripts": {
     "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MorganConrad/gitter.git"
+    "url": "git+https://github.com/MorganConrad/gitdir.git"
   },
   "keywords": [
     "Git",
@@ -24,7 +24,7 @@
   "author": "Morgan Conrad <flyingspaniel@gmail.com> (http://flyingspaniel.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MorganConrad/gitter/issues"
+    "url": "https://github.com/MorganConrad/gitdir/issues"
   },
-  "homepage": "https://github.com/MorganConrad/gitter#readme"
+  "homepage": "https://github.com/MorganConrad/gitdir#readme"
 }

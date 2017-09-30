@@ -1,15 +1,16 @@
-[![Build Status](https://secure.travis-ci.org/MorganConrad/gitter.png)](http://travis-ci.org/MorganConrad/gitter)
-[![License](http://img.shields.io/badge/license-MIT-A31F34.svg)](https://github.com/MorganConrad/gitter)
-[![NPM Downloads](http://img.shields.io/npm/dm/gitter.svg)](https://www.npmjs.org/package/gitter)
+[![Build Status](https://secure.travis-ci.org/MorganConrad/gitdir.png)](http://travis-ci.org/MorganConrad/gitdir)
+[![License](http://img.shields.io/badge/license-MIT-A31F34.svg)](https://github.com/MorganConrad/gitdir)
+[![NPM Downloads](http://img.shields.io/npm/dm/gitdir.svg)](https://www.npmjs.org/package/gitdir)
 
-# gitter
+# gitdir
 
 Javascript / node.js code to read a single directory from a GitHub or GitLab repository.
 All the files (not directories) and their contents, and returned in an array or map.
 
 ## basic usage
 
-`gitter(repositoryName, directory, options, callback);`
+`var gitdir = require('gitdir');`
+`gitdir(repositoryName, directory, options, callback);`
 
 repositoryName combines the user and the repo, and the delimiter is important!
  * for GitHub use JohnDoe/CoolRepository
@@ -17,7 +18,7 @@ repositoryName combines the user and the repo, and the delimiter is important!
 
 e.g.   to read the root directory of the [Github npm](https://github.com/npm/npm) repository,
 ```javascript
-   gitter("npm/npm", "", {}, function(err, data) {
+   gitdir("npm/npm", "", {}, function(err, data) {
       // data contains an array of objects with file information
    });
 ```
@@ -78,7 +79,7 @@ e.g. gitlab-com%2Fwww-gitlab-com/LICENCE, you get:
 * map :             **false**          if true, return a map (with key = path) instead of array of file information
 * private_token :   **""**             needed if you are fetching a private repository
 * recur :           **false**          not yet supported
-* user_agent :      **"github.com/MorganConrad/gitter"**   required for the API call, be polite
+* user_agent :      **"github.com/MorganConrad/gitdir"**   required for the API call, be polite
 ```
 
 options.fileFilter:  determines which files will be included

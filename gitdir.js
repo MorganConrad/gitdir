@@ -1,10 +1,10 @@
-module.exports = gitter;
+module.exports = gitdir;
 
 const Request = require("request");
 
 const defaults = {
    body_key : "contents",
-   user_agent : "github.com/MorganConrad/gitter",
+   user_agent : "github.com/MorganConrad/gitdir",
    branch : "master",
    private_token : ""
  };
@@ -13,13 +13,13 @@ var options = null;
 
 
 /**
- * [gitter description]
+ *
  * @param  {[String]}   repo        User/Repo for GitHub,  User%2FRepo for GitLab
  * @param  {[String]}   subdir      subdirectory, e.g. "test"
  * @param  {[object]}   userOptions see README.md
  * @param  {Function} callback      standard callback(error, data)
 */
-function gitter(repo, subdir, userOptions, callback) {
+function gitdir(repo, subdir, userOptions, callback) {
    subdir = subdir || "";
    options = normalize(userOptions);
 

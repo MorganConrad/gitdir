@@ -1,6 +1,6 @@
 {
   "name": "gitdir",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Get files from a single directory of a GitHub repositories",
   "main": "gitdir.js",
   "scripts": {
@@ -12,11 +12,12 @@
   },
   "keywords": [
     "Git",
-    "Github",
-    "Gitlab"
+    "GitHub",
+    "GitLab",
+    "Repository"
   ],
   "dependencies" : {
-     "request": "~2.81.0"
+     "minimal-request-promise": "~1.4.0"
   },
   "devDependencies": {
     "tape": "^4.6"

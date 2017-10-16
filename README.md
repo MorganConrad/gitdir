@@ -2,7 +2,7 @@
 [![License](http://img.shields.io/badge/license-MIT-A31F34.svg)](https://github.com/MorganConrad/gitdir)
 [![NPM Downloads](http://img.shields.io/npm/dm/gitdir.svg)](https://www.npmjs.org/package/gitdir)
 [![Known Vulnerabilities](https://snyk.io/test/github/morganconrad/gitdir/badge.svg)](https://snyk.io/test/github/morganconrad/gitdir)
-
+[![Coverage Status](https://coveralls.io/repos/github/MorganConrad/gitdir/badge.svg)](https://coveralls.io/github/MorganConrad/gitdir)
 # gitdir
 
 Javascript / node.js code to read a single directory from a GitHub or GitLab repository.  All the files (not directories) and their contents, are returned in an array or map.  Useful if you want to grab a small part of some external repository for your project.

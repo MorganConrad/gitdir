@@ -1,6 +1,11 @@
 # Dependency directories
 node_modules/
 
+#Coverage
+coverage/
+.nyc_output/
+
+
 # Optional npm cache directory
 .npm
 

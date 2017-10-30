@@ -112,7 +112,10 @@ function getFileDataPF(filesInfo) {
 
 
 function generateGitLabDownloadURL(fileinfo, options) {
-   return `${options.gitlab_API_root}/projects/${options.repo}/repository/blobs/${fileinfo.id}/raw?private_token=${options.private_token}&ref=${options.branch}`;
+   var commonStart = `${options.gitlab_API_root}/projects/${options.repo}/repository/`;
+   var commonEnd = `/raw?private_token=${options.private_token}&ref=${options.branch}`;
+   var variableMiddle = options.blob ? `blobs/${fileinfo.id}` : `files/${fileinfo.path}`;
+   return commonStart + variableMiddle + commonEnd;
 }
 
 /**

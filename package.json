@@ -1,6 +1,6 @@
 {
   "name": "gitdir",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Get files from a single directory of a GitHub repositories",
   "main": "gitdir.js",
   "scripts": {

@@ -44,3 +44,19 @@ test('gitlab with body_key = zqx3 and keepAll', function(t) {
    });
 
 });
+
+
+test('gitlab blob no map', function(t) {
+   gitdir("gitlab-com%2Fwww-gitlab-com", "", {  gitlab: true, blob: true },
+          function(err, data) {
+             if (err)
+                t.fail(err);
+             else {
+                // first file is .gitignore, type blob
+                t.equals(".gitignore", data[0].name);
+                t.true(data[0].contents.startsWith("# See http://help.github.com/ignore-files/ for more about ignoring files."))
+             }
+
+             t.end();
+          });
+});

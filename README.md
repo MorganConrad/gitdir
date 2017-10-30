@@ -80,6 +80,7 @@ e.g. `gitlab-com%2Fwww-gitlab-com/LICENCE`, you get:
 |:------|:--------|:------|
 |gitlab, GitLab    | false| false => GitHub|
 |body_key          | "contents" | name of the new key holding the file contents ("body") |
+|blob              | false    | GitLab only.  Get content from [blob](https://docs.gitlab.com/ce/api/repositories.html#get-a-blob-from-repository) `blobs/:sha` instead of [raw file](https://docs.gitlab.com/ce/api/repository_files.html#get-raw-file-from-repository) `files/:file_path`
 |branch            | "master" | note - not tested much yet...|
 |deleteDownloadURL | false    | delete the download URL from the data, in case in contains a private_token |
 |fileFilter        | null     | see below|

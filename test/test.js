@@ -12,7 +12,7 @@ test('github', function(t) {
       else {
          //console.log(JSON.stringify(data, null, 2));
          t.true(data.LICENSE.contents.startsWith("The npm application"));
-         t.equals("README.md", data["README.md"].name)
+         t.equals(data["README.md"].name, "README.md")
       }
 
       t.end();
@@ -35,8 +35,8 @@ test('gitlab with body_key = zqx3 and keepAll', function(t) {
          else {
             // console.log(JSON.stringify(data, null, 2));
             t.true(data.LICENCE.zqx3.startsWith("Copyright (c) GitLab B.V."));  // tests body_key
-            t.equals("tree", data.bin.type);           // tests keepAll
-            t.equals("README.md", data["README.md"].name);
+            t.equals(data.bin.type, "tree");           // tests keepAll
+            t.equals(data["README.md"].name, "README.md");
             t.false(data.LICENCE.download_url);  // test deleteDownloadURL
          }
 
@@ -46,14 +46,18 @@ test('gitlab with body_key = zqx3 and keepAll', function(t) {
 });
 
 
-test('gitlab blob no map', function(t) {
-   gitdir("gitlab-com%2Fwww-gitlab-com", "", {  gitlab: true, blob: true },
+test('gitlab blob no map with fileFilter', function(t) {
+   gitdir("gitlab-com%2Fwww-gitlab-com", "",
+          {  gitlab: true,
+             blob: true,
+             fileFilter: "\.gitignore"   // only retrieve gitignore
+          },
           function(err, data) {
              if (err)
                 t.fail(err);
              else {
-                // first file is .gitignore, type blob
-                t.equals(".gitignore", data[0].name);
+                t.equals(data.length, 1);
+                t.equals(data[0].name, ".gitignore");
                 t.true(data[0].contents.startsWith("# See http://help.github.com/ignore-files/ for more about ignoring files."))
              }
 

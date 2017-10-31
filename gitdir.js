@@ -155,17 +155,14 @@ function normalize(userOptions){
 
 /* calculate file filter function */
 function fileFilter(filter) {
-  if (filter) {
-     if (typeof filter === 'string') {
-        var regex = new RegExp(filter);
-        return function(filePath) { return regex.test(filePath); }
-     }
-     else if (filter instanceof RegExp)
-        return function(filePath) { return filter.test(filePath); }
-     else {   // must be a function itself
-        return filter;
-     }
-   }
-   else
-      return function(filePath) { return !filePath.endsWith(".jar"); };
+   if (!filter)  // accept anything
+      return function(filePath) { return true; };
+
+   if (typeof filter === 'string')
+      filter = new RegExp(filter);  // and fall through
+
+   return (filter instanceof RegExp) ?
+      function(filePath) { return filter.test(filePath); } :
+      filter;  // its a function itself
+
 }
